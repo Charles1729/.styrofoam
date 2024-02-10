@@ -18,12 +18,27 @@
 \subsection{Test Subsection}
 \lipsum[1-1]
 \subsection{Other Subsection}
-\begin{thm}
-    This is a cool theorem.
+\begin{thm}[Residue Theorem]
+    Let $f$ be analytic in the region $G$ except for the isolated 
+    singularities $a_1,a_2,\dots,a_m$. If $\gamma$ is a closed 
+    rectifiable curve in $G$ which does not pass through any of the 
+    points $a_k$ and if $\gamma\approx 0$ in $G$, then
+    \[
+      \frac{1}{2\pi i}\int_\gamma\! f = \sum_{k=1}^m 
+      n(\gamma;a_k)\text{Res}(f;a_k)\,.
+    \]
 \end{thm}
 \lipsum[2-2]
 \begin{definition}
-    This is a cool definition.
+    The quantity 
+    \[
+        \begin{vmatrix}
+            1 & 2 & 3 \\
+            0 & 4 & 3 \\
+            4 & 5 & 2
+        \end{vmatrix}
+    \]
+    is called a \hl{determinant}.
 \end{definition}
 \lipsum[3-3]
 \begin{problem}
@@ -42,22 +57,10 @@
     \begin{claim}
         Cool claim, too
     \end{claim}
-    \lipsum[70-70]
     And so we are done.
 \end{solution}
 
-We may nest environments:
-\begin{problem}
-    My problem would like to show that the theorem
-    \begin{thm}
-        Cool theorem
-    \end{thm}
-    is true.
-\end{problem}
-
 \lipsum[4-4]
-
-\subsection{Nesting}
 
 \section{Body}
 
