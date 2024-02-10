@@ -7,9 +7,11 @@
 %                                      /____/   
 \ProvidesPackage{fortis}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                    COLOR                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage[dvipsnames]{xcolor}
-
-
 
 \definecolor{subsectioncolor}{HTML}{424242}
 \definecolor{probcolor}{HTML}{566bf5}
@@ -20,15 +22,10 @@
 \definecolor{defcolor}{HTML}{639492}
 \definecolor{thmcolor}{HTML}{11a87b}
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                   PACKAGES                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Packages %
-
-% Packages: Math
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amssymb, amsthm, amsfonts, calc}
 \usepackage{array}
@@ -37,15 +34,11 @@
 \usepackage{tikz, tikz-cd, tikzsymbols}
 \usetikzlibrary{graphs}
 
-% Packages: Code
 \usepackage{listings}
 
-% Packages: Enumeration
 \usepackage{enumerate}
 \usepackage{enumitem}
 
-% Packages: Theorems
-\usepackage{color}
 \usepackage{tcolorbox}
 \usepackage{adjustbox}
 \usepackage{thmtools}
@@ -54,7 +47,6 @@
 \tcbuselibrary{skins,breakable}
 \tcbset{skin=enhanced}
 
-% Packages: File Changers
 \usepackage{ifthen}
 \usepackage[parfill]{parskip}
 \usepackage{etoolbox}
@@ -63,11 +55,9 @@
 \urlstyle{tt}
 \usepackage{titlesec}
 
-% Packages: Images
 \usepackage{graphicx}
 \usepackage{subcaption}
 
-% Packages: Setup
 \usepackage[bottom]{footmisc} 
 \usepackage[top=0.1in,margin=0.4in]{geometry}
 \usepackage{fancyhdr}
@@ -128,18 +118,8 @@
 \cfoot{}
 \rfoot{\thepage}
 
-% Page Setup: Line after for sections
-% \newcommand{\hruleafter}[1]{#1\hrule}
-
-% Page Setup: Redefinition of the \section command
-\titleformat{\section}{\LARGE\bfseries}{\thesection}{0pt}{}
-\setcounter{secnumdepth}{0}
-\titleformat{\subsection}{\large\sffamily\bfseries\itshape\color{subsectioncolor}}{\thesubsection}{0pt}{}
-
-% Page Setup: Removing absurd space
-% \titlespacing{\section}{0pt}{\parskip}{-\parskip}
-% Page Setup: manual doublespace, use only when necessary
-% Use 2 line breaks normally.
+% Page Setup: Redefinition of the \subsection command
+\titleformat{\subsection}{\large\sffamily\bfseries\itshape\color{subsectioncolor}}{}{0pt}{}
 \newcommand{\nrl}{$~$ \newline $~$ \newline}
 
 
@@ -148,7 +128,6 @@
 %                MATH COMMANDS                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Math: Sets of numbers shorthand
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -157,7 +136,6 @@
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\T}{\mathcal{T}}
 
-% Math: Galois group shorthand
 \newcommand{\Gal}{\text{Gal}}
 
 % Circles: \arc redefinition
@@ -176,11 +154,9 @@
 }
 \makeatother
 
-% Sums: symmetric and cyclic
 \newcommand{\symsum}{\sum_{\text{sym}}}
 \newcommand{\cyc}{\sum_{cyc}}
 
-% Shorthands: varepsilon, degrees, directed angles, lines, rays, segments, and vectors
 \newcommand{\eps}{\varepsilon}
 \newcommand{\dg}{^\circ}
 \newcommand{\dangle}{\measuredangle}
@@ -188,16 +164,13 @@
 \newcommand{\ray}{\overrightarrow}
 \newcommand{\seg}{\overline}
 
-% Shorthands: Perspectivity
 \newcommand{\p}[1]{\stackrel{#1}{=}}
 
-% Wraparound Commands: floor, ceiling, absolute value, and magnitude (norm)
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 
-% Text Commands: cis, lcm, diam, rank, pow and rk
 \DeclareMathOperator{\cis}{cis}
 \DeclareMathOperator*{\lcm}{lcm}
 \DeclareMathOperator{\diam}{diam}
@@ -205,10 +178,8 @@
 \DeclareMathOperator{\pow}{pow}
 \DeclareMathOperator{\rk}{rk}
 
-% Integrals: dx
 \renewcommand{\d}[1]{\mathop{\mathrm{d}{#1}}}
 
-% Highlights
 \newcommand{\hl}[1]{{\sffamily\bfseries\color{blue}{#1}}}
 
 
@@ -232,15 +203,6 @@
 \newenvironment{solution}{\textit{Solution.}}{\qed}
 \newcommand{\remark}{\textbf{Remark. }}
 
-% Outlines.
-\definecolor{archcolor}{HTML}{fa753c}
-\definecolor{clubcolor}{HTML}{1eaac9}
-\newcommand{\outline}[2]{{\sffamily\bfseries\color{archcolor}\textbf{#1}}
-{\color{clubcolor}\textbf{(#2$\clubsuit$)}} }
-
-% \newcommand{\outline}[2]{
-%   {\sffamily\bfseries\color{archcolor}\textbf{#1}}{\color{clubcolor}\textbf{ [#2$\clubsuit$] }}\item}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -254,12 +216,6 @@
 	topline=false, bottomline=false,
 	linecolor=probcolor, nobreak=false
 }
-% \mdfdefinestyle{solbox} {
-% 	linewidth=1.75pt, skipabove=4pt,
-% 	rightline=false, leftline=true,
-% 	topline=false, bottomline=false,
-% 	linecolor=solcolor, nobreak=false
-% }
 \mdfdefinestyle{lembox} {
 	linewidth=0.75pt, skipabove=4pt,
 	rightline=false, leftline=true,
@@ -279,13 +235,13 @@
 	linecolor=excolor, nobreak=false
 }
 \mdfdefinestyle{defbox} {
-	linewidth=1.75pt, skipabove=4pt,
+	linewidth=1pt, skipabove=4pt,
 	rightline=false, leftline=true,
 	topline=false, bottomline=false,
 	linecolor=defcolor, nobreak=false
 }
 \mdfdefinestyle{thmbox} {
-	linewidth=1.75pt, skipabove=4pt,
+	linewidth=1pt, skipabove=4pt,
 	rightline=false, leftline=true,
 	topline=false, bottomline=false,
 	linecolor=thmcolor, nobreak=false
@@ -293,51 +249,46 @@
 
 % LEE: Declarations
 \declaretheoremstyle[
+	headfont=\sffamily\bfseries\color{thmcolor},
+	notefont=\sffamily\bfseries\color{thmcolor},
+	spaceabove=1pt, spacebelow=1pt,
+	mdframed={style=thmbox}, headpunct={:},
+]{thmstyle}
+\declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{probcolor},
 	notefont=\sffamily\bfseries\color{probcolor},
-	spaceabove=0pt, spacebelow=0pt,
+	spaceabove=1pt, spacebelow=1pt,
 	mdframed={style=probbox}, headpunct={:},
 ]{probstyle}
-\declaretheorem[style=probstyle, name=Problem, numbered=yes]{problem}
-% \declaretheoremstyle[
-% 	headfont=\sffamily\bfseries\color{solcolor},
-% 	notefont=\sffamily\bfseries\color{solcolor},
-% 	spaceabove=0pt, spacebelow=0pt,
-% 	mdframed={style=solbox}, headpunct={:},
-% ]{solstyle}
-% \declaretheorem[style=solstyle, name=Solution, numbered=yes]{solution}
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{lemcolor},
 	notefont=\sffamily\bfseries\color{lemcolor},
-	spaceabove=0pt, spacebelow=0pt,
+	spaceabove=1pt, spacebelow=1pt,
 	mdframed={style=lembox}, headpunct={:},
 ]{lemstyle}
-\declaretheorem[style=lemstyle, name=Lemma, numbered=no]{lemma}
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{claimcolor},
 	notefont=\sffamily\bfseries\color{claimcolor},
-	spaceabove=0pt, spacebelow=0pt,
+	spaceabove=1pt, spacebelow=1pt,
 	mdframed={style=claimbox}, headpunct={:},
 ]{claimstyle}
-\declaretheorem[style=claimstyle, name=Claim, numbered=no]{claim}
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{excolor},
 	notefont=\sffamily\bfseries\color{excolor},
-	spaceabove=0pt, spacebelow=0pt,
+	spaceabove=1pt, spacebelow=1pt,
 	mdframed={style=exbox}, headpunct={:},
 ]{exstyle}
-\declaretheorem[style=exstyle, name=Exercise, numbered=yes]{exercise}
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{defcolor},
 	notefont=\sffamily\bfseries\color{defcolor},
-	spaceabove=0pt, spacebelow=-\parskip,
+	spaceabove=1pt, spacebelow=1pt,
 	mdframed={style=defbox}, headpunct={:},
 ]{defstyle}
-\declaretheorem[style=defstyle, name=Definition, numbered=yes]{definition}
-\declaretheoremstyle[
-	headfont=\sffamily\bfseries\color{thmcolor},
-	notefont=\sffamily\bfseries\color{thmcolor},
-	spaceabove=0pt, spacebelow=-\parskip,
-	mdframed={style=thmbox}, headpunct={:},
-]{thmstyle}
-\declaretheorem[style=thmstyle, name=Theorem, numbered=yes]{thm}
+
+
+\declaretheorem[style=thmstyle, name=Theorem, numbered=yes, numberwithin=section]{thm}
+\declaretheorem[style=probstyle, name=Problem, numbered=yes, numberwithin=section]{problem}
+\declaretheorem[style=lemstyle, numbered=no]{lemma}
+\declaretheorem[style=claimstyle, name=Claim, numbered=no]{claim}
+\declaretheorem[style=exstyle, name=Exercise, numbered=yes]{exercise}
+\declaretheorem[style=defstyle, name=Definition, name=Definition, numbered=yes, numberlike=thm]{definition}
