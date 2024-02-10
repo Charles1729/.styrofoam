@@ -62,20 +62,14 @@
 \usepackage{url}
 \urlstyle{tt}
 \usepackage{titlesec}
-\usepackage{lipsum}
-% Commands to make LaTeX quotes less jank
-% \usepackage [autostyle, english = american]{csquotes}
-% \MakeOuterQuote{"}
 
 % Packages: Images
 \usepackage{graphicx}
 \usepackage{subcaption}
-% Command if I ever want to put images in a separate folder
-% \graphicspath{ {./img/} }
 
 % Packages: Setup
 \usepackage[bottom]{footmisc} 
-\usepackage[top=0.6in,margin=0.4in]{geometry}
+\usepackage[top=0.1in,margin=0.4in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{changepage}
 \hypersetup{
@@ -130,8 +124,6 @@
 \setlength{\headwidth}{6.5in}
 \setlength{\textheight}{9in}
 \lhead{\@author}
-\chead{}
-\rhead{}
 \lfoot{}
 \cfoot{}
 \rfoot{\thepage}
@@ -140,7 +132,7 @@
 % \newcommand{\hruleafter}[1]{#1\hrule}
 
 % Page Setup: Redefinition of the \section command
-\titleformat{\section}{\LARGE\bfseries\bfseries}{\thesection}{0pt}{}
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{0pt}{}
 \setcounter{secnumdepth}{0}
 \titleformat{\subsection}{\large\sffamily\bfseries\itshape\color{subsectioncolor}}{\thesubsection}{0pt}{}
 
@@ -269,13 +261,13 @@
 % 	linecolor=solcolor, nobreak=false
 % }
 \mdfdefinestyle{lembox} {
-	linewidth=0.5pt, skipabove=4pt,
+	linewidth=0.75pt, skipabove=4pt,
 	rightline=false, leftline=true,
 	topline=false, bottomline=false,
 	linecolor=lemcolor, nobreak=false
 }
 \mdfdefinestyle{claimbox} {
-	linewidth=1.75pt, skipabove=0pt,
+	linewidth=0.75pt, skipabove=4pt,
 	rightline=false, leftline=true,
 	topline=false, bottomline=false,
 	linecolor=claimcolor, nobreak=false
