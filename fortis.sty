@@ -7,20 +7,26 @@
 %                                      /____/   
 \ProvidesPackage{fortis}
 
-% Published on Github under the MIT License.
-% Use as you wish, have fun with it, thank you
-% for using!
+\usepackage[dvipsnames]{xcolor}
+
+
+
+\definecolor{subsectioncolor}{HTML}{424242}
+\definecolor{probcolor}{HTML}{566bf5}
+\definecolor{solcolor}{HTML}{fa493c}
+\definecolor{lemcolor}{HTML}{b35d72}
+\definecolor{claimcolor}{HTML}{b35d72}
+\definecolor{excolor}{HTML}{707070}
+\definecolor{defcolor}{HTML}{639492}
+\definecolor{thmcolor}{HTML}{11a87b}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                   PACKAGES                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Packages %
-
-% Packages: xcolor is at the very top because 
-% one of enumitem or enumerate re-installs it
-% *without* dvipsnames which is horrid
-\usepackage[dvipsnames]{xcolor}
 
 % Packages: Math
 \usepackage[utf8]{inputenc}
@@ -134,13 +140,12 @@
 % \newcommand{\hruleafter}[1]{#1\hrule}
 
 % Page Setup: Redefinition of the \section command
-\titleformat{\section}{\Large\bfseries}{\thesection}{0em}{}
+\titleformat{\section}{\LARGE\bfseries\bfseries}{\thesection}{0pt}{}
 \setcounter{secnumdepth}{0}
-\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0pt}{}
+\titleformat{\subsection}{\large\sffamily\bfseries\itshape\color{subsectioncolor}}{\thesubsection}{0pt}{}
 
 % Page Setup: Removing absurd space
 % \titlespacing{\section}{0pt}{\parskip}{-\parskip}
-
 % Page Setup: manual doublespace, use only when necessary
 % Use 2 line breaks normally.
 \newcommand{\nrl}{$~$ \newline $~$ \newline}
@@ -249,16 +254,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MORE ADVANCED LINE-ENDER ENVIRONMENTS (LEE) %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Stolen from fluffy (sorry)
-
-% LEE: Colors
-\definecolor{probcolor}{HTML}{566bf5}
-\definecolor{solcolor}{HTML}{fa493c}
-\definecolor{lemcolor}{HTML}{b35d72}
-\definecolor{claimcolor}{HTML}{b35d72}
-\definecolor{excolor}{HTML}{707070}
-\definecolor{defcolor}{HTML}{639492}
-\definecolor{thmcolor}{HTML}{11a87b}
 
 % LEE: Box Styles
 \mdfdefinestyle{probbox} {
