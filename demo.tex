@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{fortis}
+\usepackage{lipsum}
+\pagestyle{fancy}
+
+\title{Fortis Demo}
+\author{Charles Zhang}
+
+\begin{document}\nrl\nrl
+\begin{center}
+    \huge{Fortis Demo}
+    
+    \large{Charles Zhang}
+\end{center}\nrl
+\tableofcontents
+\newpage
+\section{Introduction}
+\subsection{Test Subsection}
+\lipsum[1-1]
+\subsection{Other Subsection}
+\begin{thm}
+    This is a cool theorem.
+\end{thm}
+\lipsum[2-2]
+\begin{definition}
+    This is a cool definition.
+\end{definition}
+\lipsum[3-3]
+\begin{problem}
+    This is a cool problem to solve.
+\end{problem}
+\begin{solution}
+    This is a cool solution
+    \begin{lemma}
+        With a cool lemma
+    \end{lemma}
+    \begin{proof}
+        with a proof. \lipsum[69-69]
+    \end{proof}
+    
+    \lipsum[71-71]
+    \begin{claim}
+        Cool claim, too
+    \end{claim}
+    \lipsum[70-70]
+    And so we are done.
+\end{solution}
+
+We may nest environments:
+\begin{problem}
+    My problem would like to show that the theorem
+    \begin{thm}
+        Cool theorem
+    \end{thm}
+    is true.
+\end{problem}
+
+\lipsum[4-4]
+
+\subsection{Nesting}
+
+\section{Body}
+
+\subsection{Information}
+\lipsum[49-52]
+
+\subsection{Casework}
+We can also perform casework:\footnote{which is really just a retextured enumerate environment.}
+\begin{casework}
+    \item Something happens: \lipsum[6-6]
+    \item Other thing happens: \lipsum[5-5]
+\end{casework}
+
+\section{Conclusion}
+\lipsum[7-7]
+\end{document}
