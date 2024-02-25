@@ -126,6 +126,8 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\T}{\mathcal{T}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\A}{\mathcal{A}}
 
 \newcommand{\Gal}{\text{Gal}}
 
@@ -161,6 +163,7 @@
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
 
 \DeclareMathOperator{\cis}{cis}
 \DeclareMathOperator*{\lcm}{lcm}
@@ -191,7 +194,7 @@
 
 % Proofs: Take up less space above.
 \renewenvironment{proof}{\begin{adjustwidth}{0.4cm}{}\textit{Proof.}}{$\blacksquare$\end{adjustwidth}}
-\newenvironment{solution}{\textit{Solution.}}{\qed}
+\newenvironment{solution}{\textit{Solution.}}{\qed\newline}
 \newcommand{\remark}{\textbf{Remark. }}
 
 
@@ -211,13 +214,15 @@
 	linewidth=0.75pt, skipabove=4pt,
 	rightline=false, leftline=true,
 	topline=false, bottomline=false,
-	linecolor=lemcolor, nobreak=false
+	linecolor=lemcolor, nobreak=false,
+	leftmargin=0.4cm
 }
 \mdfdefinestyle{claimbox} {
 	linewidth=0.75pt, skipabove=4pt,
 	rightline=false, leftline=true,
 	topline=false, bottomline=false,
-	linecolor=claimcolor, nobreak=false
+	linecolor=claimcolor, nobreak=false,
+	leftmargin=0.4cm
 }
 \mdfdefinestyle{exbox} {
 	linewidth=1pt, skipabove=5pt,
@@ -278,7 +283,7 @@
 
 
 \declaretheorem[style=thmstyle, name=Theorem, numbered=yes, numberwithin=section]{thm}
-\declaretheorem[style=probstyle, name=Problem, numbered=yes, numberwithin=section]{problem}
+\declaretheorem[style=probstyle, name=Problem, numbered=yes, numberwithin=section, numberlike=thm]{problem}
 \declaretheorem[style=lemstyle, numbered=no]{lemma}
 \declaretheorem[style=claimstyle, name=Claim, numbered=no]{claim}
 \declaretheorem[style=exstyle, name=Exercise, numbered=yes]{exercise}
