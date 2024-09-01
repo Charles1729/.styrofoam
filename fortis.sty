@@ -27,7 +27,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath, amssymb, amsthm, amsfonts, calc}
+\usepackage{amsmath, amssymb, amsthm, amsfonts, mathrsfs, calc}
 \usepackage{array}
 \usepackage{mathtools}
 \usepackage[inline]{asymptote}
@@ -67,9 +67,11 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=blue,
-    pdftitle={Overleaf Example},
+    pdftitle={Scrap},
     pdfpagemode=FullScreen,
+	citecolor=blue
     }
+\usepackage{sectsty}
 
 
 
@@ -105,12 +107,15 @@
 \setlength{\headwidth}{6.5in}
 \setlength{\textheight}{9in}
 \lhead{\@author}
+\rhead{\@title}
 \lfoot{}
 \cfoot{}
 \rfoot{\thepage}
 
 % Page Setup: Redefinition of the \subsection command
-\titleformat{\subsection}{\large\sffamily\bfseries\itshape\color{subsectioncolor}}{}{0pt}{}
+% \titleformat{\subsection}{\large\sffamily\bfseries\itshape\color{subsectioncolor}}{}{0pt}{}
+\sectionfont{\boldmath}
+\subsectionfont{\color{subsectioncolor}\boldmath}
 \newcommand{\nrl}{$~$ \newline $~$ \newline}
 
 
@@ -130,6 +135,7 @@
 \newcommand{\A}{\mathcal{A}}
 
 \newcommand{\Gal}{\text{Gal}}
+\newcommand{\supp}{\mathsf{supp}}
 
 % Circles: \arc redefinition
 \makeatletter
@@ -160,6 +166,7 @@
 \newcommand{\p}[1]{\stackrel{#1}{=}}
 
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\db}[1]{\left\llbracket #1 \right\rrbracket}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
@@ -243,48 +250,112 @@
 	linecolor=thmcolor, nobreak=false
 }
 
+\mdfdefinestyle{propbox} {
+	linewidth=1pt, skipabove=4pt,
+	rightline=false, leftline=true,
+	topline=false, bottomline=false,
+	linecolor=black, nobreak=false
+}
+
 % LEE: Declarations
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{thmcolor},
 	notefont=\sffamily\bfseries\color{thmcolor},
 	spaceabove=1pt, spacebelow=1pt,
-	mdframed={style=thmbox}, headpunct={:},
+	mdframed={style=thmbox}, headpunct={.},
 ]{thmstyle}
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{probcolor},
 	notefont=\sffamily\bfseries\color{probcolor},
 	spaceabove=1pt, spacebelow=1pt,
-	mdframed={style=probbox}, headpunct={:},
+	mdframed={style=probbox}, headpunct={.},
 ]{probstyle}
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{lemcolor},
 	notefont=\sffamily\bfseries\color{lemcolor},
 	spaceabove=1pt, spacebelow=1pt,
-	mdframed={style=lembox}, headpunct={:},
+	mdframed={style=lembox}, headpunct={.},
 ]{lemstyle}
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{claimcolor},
 	notefont=\sffamily\bfseries\color{claimcolor},
 	spaceabove=1pt, spacebelow=1pt,
-	mdframed={style=claimbox}, headpunct={:},
+	mdframed={style=claimbox}, headpunct={.},
 ]{claimstyle}
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{excolor},
 	notefont=\sffamily\bfseries\color{excolor},
 	spaceabove=1pt, spacebelow=1pt,
-	mdframed={style=exbox}, headpunct={:},
+	mdframed={style=exbox}, headpunct={.},
 ]{exstyle}
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{defcolor},
 	notefont=\sffamily\bfseries\color{defcolor},
 	spaceabove=1pt, spacebelow=1pt,
-	mdframed={style=defbox}, headpunct={:},
+	mdframed={style=defbox}, headpunct={.},
 ]{defstyle}
+
+\declaretheoremstyle[
+	headfont=\sffamily\bfseries\color{black},
+	notefont=\sffamily\bfseries\color{black},
+	spaceabove=1pt, spacebelow=1pt,
+	mdframed={style=propbox}, headpunct={.},
+]{propstyle}
 
 
 \declaretheorem[style=thmstyle, name=Theorem, numbered=yes, numberwithin=section]{thm}
-\declaretheorem[style=probstyle, name=Problem, numbered=yes, numberwithin=section, numberlike=thm]{problem}
+\declaretheorem[style=probstyle, name=Problem, numbered=no]{problem}
 \declaretheorem[style=lemstyle, numbered=no]{lemma}
 \declaretheorem[style=claimstyle, name=Claim, numbered=no]{claim}
 \declaretheorem[style=exstyle, name=Exercise, numbered=yes]{exercise}
 \declaretheorem[style=defstyle, name=Definition, name=Definition, numbered=yes, numberlike=thm]{definition}
+\declaretheorem[style=propstyle, name=Proposition, name=Proposition, numbered=yes, numberlike=thm]{prop}
+
+% Theorem
+\let\oldthm\thm
+\let\oldendthm\endthm
+\renewenvironment{thm}
+  {\vspace{0.5\baselineskip}\oldthm}
+  {\oldendthm\vspace{-0.5\baselineskip}}
+
+% Problem
+\let\oldproblem\problem
+\let\oldendproblem\endproblem
+\renewenvironment{problem}
+  {\vspace{0.5\baselineskip}\oldproblem}
+  {\oldendproblem\vspace{-0.5\baselineskip}}
+
+% Lemma
+\let\oldlemma\lemma
+\let\oldendlemma\endlemma
+\renewenvironment{lemma}
+  {\vspace{0.5\baselineskip}\oldlemma}
+  {\oldendlemma\vspace{-0.5\baselineskip}}
+
+% Claim
+\let\oldclaim\claim
+\let\oldendclaim\endclaim
+\renewenvironment{claim}
+  {\vspace{0.5\baselineskip}\oldclaim}
+  {\oldendclaim\vspace{-0.5\baselineskip}}
+
+% Exercise
+\let\oldexercise\exercise
+\let\oldendexercise\endexercise
+\renewenvironment{exercise}
+  {\vspace{0.5\baselineskip}\oldexercise}
+  {\oldendexercise\vspace{-0.5\baselineskip}}
+
+% Definition
+\let\olddef\definition
+\let\oldenddef\enddefinition
+\renewenvironment{definition}
+  {\vspace{0.5\baselineskip}\olddef}
+  {\oldenddef\vspace{-0.5\baselineskip}}
+
+% Proposition
+\let\oldprop\prop
+\let\oldendprop\endprop
+\renewenvironment{prop}
+  {\vspace{0.5\baselineskip}\oldprop}
+  {\oldendprop\vspace{-0.5\baselineskip}}
