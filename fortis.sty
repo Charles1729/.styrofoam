@@ -21,6 +21,7 @@
 \definecolor{excolor}{HTML}{707070}
 \definecolor{defcolor}{HTML}{639492}
 \definecolor{thmcolor}{HTML}{11a87b}
+\definecolor{exacolor}{HTML}{f58b40}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                   PACKAGES                  %
@@ -243,6 +244,12 @@
 	topline=false, bottomline=false,
 	linecolor=defcolor, nobreak=false
 }
+\mdfdefinestyle{exabox} {
+	linewidth=1pt, skipabove=4pt,
+	rightline=false, leftline=true,
+	topline=false, bottomline=false,
+	linecolor=exacolor, nobreak=false
+}
 \mdfdefinestyle{thmbox} {
 	linewidth=1pt, skipabove=4pt,
 	rightline=false, leftline=true,
@@ -294,7 +301,12 @@
 	spaceabove=1pt, spacebelow=1pt,
 	mdframed={style=defbox}, headpunct={.},
 ]{defstyle}
-
+\declaretheoremstyle[
+	headfont=\sffamily\bfseries\color{exacolor},
+	notefont=\sffamily\bfseries\color{exacolor},
+	spaceabove=1pt, spacebelow=1pt,
+	mdframed={style=exabox}, headpunct={.},
+]{exastyle}
 \declaretheoremstyle[
 	headfont=\sffamily\bfseries\color{black},
 	notefont=\sffamily\bfseries\color{black},
@@ -309,6 +321,7 @@
 \declaretheorem[style=claimstyle, name=Claim, numbered=no]{claim}
 \declaretheorem[style=exstyle, name=Exercise, numbered=yes]{exercise}
 \declaretheorem[style=defstyle, name=Definition, name=Definition, numbered=yes, numberlike=thm]{definition}
+\declaretheorem[style=exastyle, name=Example, name=Example, numbered=no]{example}
 \declaretheorem[style=propstyle, name=Proposition, name=Proposition, numbered=yes, numberlike=thm]{prop}
 
 % Theorem
@@ -352,6 +365,13 @@
 \renewenvironment{definition}
   {\vspace{0.5\baselineskip}\olddef}
   {\oldenddef\vspace{-0.5\baselineskip}}
+
+% Example
+\let\oldexa\example
+\let\oldendexa\endexample
+\renewenvironment{example}
+  {\vspace{0.5\baselineskip}\oldexa}
+  {\oldendexa\vspace{-0.5\baselineskip}}
 
 % Proposition
 \let\oldprop\prop
