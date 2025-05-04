@@ -5,64 +5,85 @@
 %  / __/ /_/ / /  / /_/ (__  ) (__  ) /_/ /_/ / 
 % /_/  \____/_/   \__/_/____(_)____/\__/\__, /  
 %                                      /____/   
+
+
+
 \ProvidesPackage{fortis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                    COLOR                    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[dvipsnames]{xcolor}
+\RequirePackage[dvipsnames]{xcolor}
 
-\definecolor{subsectioncolor}{HTML}{424242}
-\definecolor{probcolor}{HTML}{566bf5}
-\definecolor{solcolor}{HTML}{fa493c}
-\definecolor{lemcolor}{HTML}{b35d72}
-\definecolor{claimcolor}{HTML}{b35d72}
-\definecolor{excolor}{HTML}{707070}
-\definecolor{defcolor}{HTML}{639492}
-\definecolor{thmcolor}{HTML}{11a87b}
-\definecolor{exacolor}{HTML}{f58b40}
+% \definecolor{subsectioncolor}{HTML}{424242}
+% \definecolor{probcolor}{HTML}{4556c4}
+% \definecolor{solcolor}{HTML}{fa493c}
+% \definecolor{lemcolor}{HTML}{b35d72}
+% \definecolor{claimcolor}{HTML}{b35d72}
+% \definecolor{excolor}{HTML}{707070}
+% \definecolor{defcolor}{HTML}{639492}
+% \definecolor{thmcolor}{HTML}{11a87b}
+% \definecolor{exacolor}{HTML}{f58b40}
+
+\definecolor{subsectioncolor}{HTML}{4A4A4A}
+\definecolor{probcolor}{HTML}{4A5EC7}
+\definecolor{solcolor}{HTML}{FF5142}
+\definecolor{lemcolor}{HTML}{B8586F}
+\definecolor{claimcolor}{HTML}{B8586F}
+\definecolor{excolor}{HTML}{767676}
+\definecolor{exacolor}{HTML}{F78D45}
+\definecolor{defcolor}{HTML}{5F9C99}
+\definecolor{thmcolor}{HTML}{18AC80}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                   PACKAGES                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath, amssymb, amsthm, amsfonts, mathrsfs, calc}
-\usepackage{array}
-\usepackage{mathtools}
-\usepackage[inline]{asymptote}
-\usepackage{tikz, tikz-cd, tikzsymbols}
+% Packages: Simple symbols and other scribbles
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{amsmath, amssymb, amsthm, amsfonts, mathrsfs, calc}
+\RequirePackage{array}
+\RequirePackage{mathtools}
+\RequirePackage[inline]{asymptote}
+\RequirePackage{tikz, tikz-cd, tikzsymbols}
 \usetikzlibrary{graphs}
+\RequirePackage{stmaryrd}
+\RequirePackage{physics}
 
-\usepackage{listings}
+% Packages: This is literally just for code.  Look up lstlisting
+\RequirePackage{listings}
 
-\usepackage{enumerate}
-\usepackage{enumitem}
+\RequirePackage{enumerate}
+\RequirePackage{enumitem}
 
-\usepackage{tcolorbox}
-\usepackage{adjustbox}
-\usepackage{thmtools}
-\usepackage[normalem]{ulem}
-\usepackage[framemethod=TikZ]{mdframed}
+% Packages: Boxes and other tools
+\RequirePackage{tcolorbox}
+\RequirePackage{adjustbox}
+\RequirePackage{thmtools}
+\RequirePackage[normalem]{ulem}
+\RequirePackage[framemethod=TikZ]{mdframed}
 \tcbuselibrary{skins,breakable}
 \tcbset{skin=enhanced}
 
-\usepackage{ifthen}
-\usepackage[parfill]{parskip}
-\usepackage{etoolbox}
-\usepackage[colorlinks]{hyperref}
-\usepackage{url}
+% Packages: General page setup things
+\RequirePackage{ifthen}
+\RequirePackage[parfill]{parskip}
+\RequirePackage{etoolbox}
+\RequirePackage[colorlinks]{hyperref}
+\RequirePackage{url}
 \urlstyle{tt}
-\usepackage{titlesec}
+\RequirePackage{titlesec}
 
-\usepackage{graphicx}
-\usepackage{subcaption}
+% Packages: Images
+\RequirePackage{graphicx}
+\RequirePackage{subcaption}
 
-\usepackage[bottom]{footmisc} 
-\usepackage[top=0.1in,margin=0.4in]{geometry}
-\usepackage{fancyhdr}
-\usepackage{changepage}
+% Packages: Page formatting
+\RequirePackage[bottom]{footmisc} 
+\RequirePackage[top=0.1in,margin=0.4in]{geometry}
+\RequirePackage{fancyhdr}
+\RequirePackage{changepage}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -72,7 +93,7 @@
     pdfpagemode=FullScreen,
 	citecolor=blue
     }
-\usepackage{sectsty}
+\RequirePackage{sectsty}
 
 
 
@@ -80,24 +101,14 @@
 %                    FONTS                    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[sc]{mathpazo}
+\RequirePackage[sc]{mathpazo}
 \linespread{1.05}         % Palladio needs more leading (space between lines)
-\usepackage[T1]{fontenc}
+\RequirePackage[T1]{fontenc}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                  PAGE SETUP                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%% Page Setup: Old non fancyhdr setup.
-% \newcommand{\fhead}[1]{\begin{center}\course \\\prof \\\room \\#1\end{center}\vspace{2mm}}
-
-% \newcommand{\ahead}{\begin{center}
-% \ifdef{\atitle}{\textsc{\textbf{\begin{Large}\atitle\end{Large} \vspace{0.1cm}}} \\}{} 
-% \ifdef{\acourse}{\textsc{\acourse} \\}{}
-% \ifdef{\aprof}{\textsc{\aprof} \\}{}
-% \ifdef{\aauthor}{\textsc{\aauthor} \\}{}
-% \ifdef{\adate}{\textsc{\adate}}{} \end{center}\vspace{5mm}}
 
 % Page Setup: fancyhdr setup
 \setlength{\headheight}{0.75in}
@@ -114,7 +125,6 @@
 \rfoot{\thepage}
 
 % Page Setup: Redefinition of the \subsection command
-% \titleformat{\subsection}{\large\sffamily\bfseries\itshape\color{subsectioncolor}}{}{0pt}{}
 \sectionfont{\boldmath}
 \subsectionfont{\color{subsectioncolor}\boldmath}
 \newcommand{\nrl}{$~$ \newline $~$ \newline}
@@ -169,18 +179,18 @@
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\db}[1]{\left\llbracket #1 \right\rrbracket}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
-\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
-\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\gen}[1]{\left\langle #1 \right\rangle}
 
 \DeclareMathOperator{\cis}{cis}
 \DeclareMathOperator*{\lcm}{lcm}
 \DeclareMathOperator{\diam}{diam}
-\DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\pow}{pow}
 \DeclareMathOperator{\rk}{rk}
 
 \renewcommand{\d}[1]{\mathop{\mathrm{d}{#1}}}
+% \newcommand{\dd}[2]{\frac{\d{#1}}{\d{#2}}}
+\newcommand{\dydx}{\dd yx}
+\newcommand{\ddx}{\frac{\d{}}{\d{x}}}
 
 \newcommand{\hl}[1]{{\sffamily\bfseries\color{blue}{#1}}}
 
@@ -314,15 +324,18 @@
 	mdframed={style=propbox}, headpunct={.},
 ]{propstyle}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% CHANGE THESE IF YOU LIKE/DON'T LIKE NUMBERING %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \declaretheorem[style=thmstyle, name=Theorem, numbered=yes, numberwithin=section]{thm}
 \declaretheorem[style=probstyle, name=Problem, numbered=yes]{problem}
-\declaretheorem[style=lemstyle, numbered=no]{lemma}
+\declaretheorem[style=lemstyle, name=Lemma, numbered=no]{lemma}
 \declaretheorem[style=claimstyle, name=Claim, numbered=no]{claim}
 \declaretheorem[style=exstyle, name=Exercise, numbered=yes]{exercise}
 \declaretheorem[style=defstyle, name=Definition, name=Definition, numbered=yes, numberlike=thm]{definition}
-\declaretheorem[style=exastyle, name=Example, name=Example, numbered=no]{example}
-\declaretheorem[style=propstyle, name=Proposition, name=Proposition, numbered=yes, numberlike=thm]{prop}
+\declaretheorem[style=exastyle, name=Example, numbered=no]{example}
+\declaretheorem[style=propstyle, name=Proposition, numbered=yes, numberlike=thm]{prop}
 
 % Theorem
 \let\oldthm\thm
